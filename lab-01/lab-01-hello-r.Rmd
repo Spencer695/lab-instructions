@@ -11,6 +11,9 @@ output:
     highlight: pygments
     keep_tex: true
     citation_package: natbib
+  html_docoment:
+    fig_width: 7
+    fig_height: 5
 link-citations: true
 ---
 
