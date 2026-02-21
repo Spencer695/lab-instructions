@@ -2,15 +2,15 @@
 title: "Lab 01 - Hello R!"
 author: "Spencer Robbins"
 output: 
+  tufte::tufte_html:
+    css: ../lab.css
+    tufte_variant: "envisioned"
+    highlight: pygments
   tufte::tufte_handout:
     latex_engine: xelatex
     highlight: pygments
     keep_tex: true
     citation_package: natbib
-  tufte::tufte_html:
-    css: ../lab.css
-    tufte_variant: "envisioned"
-    highlight: pygments
 link-citations: true
 ---
 
@@ -271,24 +271,35 @@ Very similar but negative slightly and both data sets show nearly the same linea
 
 **Filter, plot, and calculate correlation:**
 ```{r circle-data, eval = FALSE}
-# Your code here
+circle_data <- datasaurus_dozen %>%  
+filter(dataset == "circle")
 ```
 
 ```{r circle-plot, fig.fullwidth=TRUE, eval = FALSE}
-# Your code here
+ggplot(circle_data, aes(x = x, y = y)) +
+  geom_point() +
+  labs(title = "circle Dataset: y vs x")
 ```
 
 ```{r circle-correlation, eval = FALSE}
-# Your code here
+circle_data %>%
+  summarize(r = cor(x,y))
 ```
 
 **Write your answers:**
 
-- The correlation coefficient for the circle dataset is: 
+- The correlation coefficient for the circle dataset is:
+
+-0.06834336	
 
 - Compared to the dino dataset, the circle dataset's correlation is:
 
+The circle data set is very similar to the dino data set with the difference in the value. They are both close to zero and show little to no linear relationship. 
+
 - What do you notice about the correlation coefficients for dino, star, and circle?
+
+All three are very close to zero and are nearly the same even if the data sets have different images produced. This means the the correlation does not show the true structure of the data set and shows the importance of showing a visual of it. 
+
 
 🧶 ✅ ⬆️ *You should pause again, commit changes with the commit message "Added answer for Ex 4", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
