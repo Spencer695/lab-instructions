@@ -2,15 +2,15 @@
 title: "Lab 01 - Hello R!"
 author: "Spencer Robbins"
 output: 
-  tufte::tufte_html:
-    css: ../lab.css
-    tufte_variant: "envisioned"
-    highlight: pygments
   tufte::tufte_handout:
     latex_engine: xelatex
     highlight: pygments
     keep_tex: true
     citation_package: natbib
+  tufte::tufte_html:
+    css: ../lab.css
+    tufte_variant: "envisioned"
+    highlight: pygments
 link-citations: true
 ---
 
@@ -231,17 +231,19 @@ Made the dinosaur graph and got calculation.
 
 3.  Plot `y` vs. `x` for the `star` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
 
+The star data set is very similar to the dino data set where both values are close to zero meaning little to no linear relationship. THe star data set is slightly negative while the dino is slightly positive. 
+
 **Your task:** Adapt the code from Exercise 2, changing `"dino"` to `"star"`.
 
 **Step 1: Filter for star data**
 ```{r star-data, eval = FALSE}
-star_data %
-  filter(dataset == ___)
+star_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
 ```
 
 **Step 2: Create the plot**
 ```{r star-plot, fig.fullwidth=TRUE, eval = FALSE}
-ggplot(data = ___, mapping = aes(x = x, y = y)) +
+ggplot(data = star_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
@@ -253,9 +255,13 @@ star_data %>%
 
 **Write your answers:**
 
-- The correlation coefficient for the star dataset is: 
+- The correlation coefficient for the star dataset is:
+
+-0.0629611
 
 - Compared to the dino dataset (r = -0.06447185), the star dataset's correlation is: 
+
+Very similar but negative slightly and both data sets show nearly the same linear relationship.
 
 🧶 ✅ ⬆️ *This is another good place to pause, knit, commit changes with the commit message "Added answer for Ex 3", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
